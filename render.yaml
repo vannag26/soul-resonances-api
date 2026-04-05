@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: soul-resonances-api
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: SUPABASE_URL
+        value: https://yfphwdlmvilfjivuisvi.supabase.co
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: STRIPE_SECRET_KEY
+        sync: false
+      - key: STRIPE_WEBHOOK_SECRET
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: INTERNAL_API_KEY
+        value: sr_internal_2026
+      - key: FRONTEND_URL
+        value: https://soulresonances.com
