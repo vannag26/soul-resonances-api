@@ -9,8 +9,6 @@ const supabase = createClient(
   process.env.SUPABASE_SERVICE_ROLE_KEY
 );
 
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
-
 // GET /api/content/articles?category=wealth&lang=en
 router.get('/articles', async (req, res) => {
   const { category, lang = 'en', tier = 'free', limit = 20 } = req.query;
@@ -62,6 +60,7 @@ router.post('/generate', async (req, res) => {
   }
 
   try {
+    const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
     const systemPrompt = `You are a spiritual wellness content creator for Soul Resonances,
     a brand focused on Feng Shui, astrology, and spiritual guidance.
     Brand voice: soft feminine luxe, calm authority, warm and elegant.
